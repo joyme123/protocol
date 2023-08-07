@@ -257,7 +257,7 @@ type CompletionItem struct {
 	// contained and starting at the same position.
 	//
 	// @since 3.16.0 additional type "InsertReplaceEdit".
-	TextEdit *TextEdit `json:"textEdit,omitempty"` // *TextEdit | *InsertReplaceEdit
+	TextEdit interface{} `json:"textEdit,omitempty"` // *TextEdit | *InsertReplaceEdit
 }
 
 // CompletionItemKind is the completion item kind values the client supports. When this
@@ -324,6 +324,7 @@ const (
 )
 
 // String implements fmt.Stringer.
+//
 //nolint:cyclop
 func (k CompletionItemKind) String() string {
 	switch k {
@@ -730,6 +731,7 @@ const (
 )
 
 // String implements fmt.Stringer.
+//
 //nolint:cyclop
 func (k SymbolKind) String() string {
 	switch k {
