@@ -431,6 +431,13 @@ type LinkedEditingRangeRegistrationOptions struct {
 // @since 3.16.0.
 type SemanticTokensOptions struct {
 	WorkDoneProgressOptions
+	Legend SemanticTokensLegend `json:"legend"`
+	Range  *bool                `json:"range,omitempty"`
+	Full   interface{}          `json:"full,omitempty"` // bool | SemanticTokensFullOptions
+}
+
+type SemanticTokensFullOptions struct {
+	Delta *bool `json:"delta,omitempty"`
 }
 
 // SemanticTokensRegistrationOptions registration option of semantic tokens provider server capabilities.
